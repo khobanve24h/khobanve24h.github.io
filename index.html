@@ -132,6 +132,10 @@ nav.mn .in{display:flex;align-items:stretch;flex-wrap:wrap}
 .pay{background:var(--paper);padding-block:28px}
 .pay h2{margin:0 0 4px;font-size:22px;text-transform:uppercase}
 .pay p{margin:0 0 16px;color:var(--muted)}
+.steps4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.steps4 div{border:1px solid var(--line);border-top:3px solid var(--orange);padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.steps4 span{color:var(--muted)}
+.small{font-size:13px;color:var(--muted);margin-top:12px}
 .pays{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
 .pays div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 12px;text-align:center;font-weight:700}
 .pays small{display:block;font-weight:400;color:var(--muted);margin-top:4px}
@@ -177,7 +181,7 @@ footer p{margin:0 0 6px}
   <a class="hl" href="#moi">TOP bản vẽ</a>
   <a class="hl" href="#free">Bản vẽ miễn phí</a>
   <span class="sp"></span>
-  <a href="#ban">Đăng nhập</a><a href="#ban">Đăng ký</a>
+  <a href="#mua">Hướng dẫn mua</a><a href="#dangbai">Đăng bán bản vẽ</a>
 </div></div>
 
 <header class="hd"><div class="in">
@@ -189,7 +193,7 @@ footer p{margin:0 0 6px}
   </form>
   <div class="acts">
     <a class="act g" href="#mua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>Nạp tiền</a>
-    <a class="act o" href="#ban"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M6 16l10-10 2 2-10 10H6z"/></svg>Đăng bài</a>
+    <a class="act o" href="#dangbai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M6 16l10-10 2 2-10 10H6z"/></svg>Đăng bài</a>
   </div>
 </div></header>
 
@@ -212,7 +216,7 @@ footer p{margin:0 0 6px}
         <div>
           <h2>Đăng bán bản vẽ của bạn</h2>
           <p>KTS, kỹ sư, sinh viên có bản vẽ tự làm có thể đăng lên kho và nhận chia doanh thu mỗi tháng.</p>
-          <a class="cta" href="#ban">Đăng bài ngay</a>
+          <a class="cta" href="#dangbai">Đăng bài ngay</a>
           <ul class="ticks"><li>Kho kiểm tra và dựng trang giúp</li><li>Rút tiền về tài khoản ngân hàng</li></ul>
         </div>
         <svg viewBox="0 0 300 220" aria-hidden="true"><rect x="30" y="40" width="240" height="150" rx="6" fill="#fff" opacity=".95"/><g stroke="#2f2f2f" stroke-width="1.5" fill="none"><rect x="55" y="65" width="190" height="100"/><line x1="120" y1="65" x2="120" y2="165"/><line x1="185" y1="65" x2="185" y2="165"/><line x1="55" y1="115" x2="120" y2="115"/></g><circle cx="230" cy="175" r="26" fill="#6fbf2a"/><path d="M218 175l8 8 16-16" stroke="#fff" stroke-width="5" fill="none"/></svg>
@@ -241,9 +245,27 @@ footer p{margin:0 0 6px}
     </div>
   </section>
 
+  <section class="pay" id="dangbai" style="border-top:1px solid var(--line)"><div class="in">
+    <h2>Đăng bán bản vẽ</h2>
+    <p>Bạn là KTS, kỹ sư hay sinh viên có bản vẽ tự làm? Gửi qua Zalo, kho kiểm tra và đăng giúp, bán được thì chia tiền cho bạn.</p>
+    <div class="steps4">
+      <div><b>1. Chuẩn bị</b><span>File DWG (hoặc SKP, RVT, MAX), 1-3 ảnh hoặc PDF xem trước. Đã xoá tên chủ nhà, địa chỉ công trình.</span></div>
+      <div><b>2. Gửi Zalo</b><span>Gửi file, tên bản vẽ, kích thước lô đất, giá muốn bán tới Zalo <b>0979 597 679</b>, ghi "ĐĂNG BÀI".</span></div>
+      <div><b>3. Kho duyệt</b><span>Kho kiểm tra file và bản quyền, dựng trang và báo lại mã bản vẽ trong 1-2 ngày.</span></div>
+      <div><b>4. Nhận tiền</b><span>Mỗi lượt bán, kho chuyển khoản phần của bạn vào cuối tháng.</span></div>
+    </div>
+    <p class="small">Chỉ nhận bản vẽ do chính bạn làm hoặc có quyền bán. Bản vẽ chép từ trang khác sẽ bị từ chối.</p>
+  </div></section>
+
   <section class="pay" id="mua"><div class="in">
     <h2>Thanh toán dễ dàng</h2>
     <p>Chuyển khoản là có file, không cần thẻ quốc tế.</p>
+    <div class="steps4" style="margin-bottom:18px">
+      <div><b>1. Chọn bản vẽ</b><span>Ghi lại mã bản vẽ, ví dụ KB-NP-0520.</span></div>
+      <div><b>2. Nhắn Zalo</b><span>Nhắn mã bản vẽ tới Zalo <b>0979 597 679</b> để nhận PDF xem trước và mã VietQR.</span></div>
+      <div><b>3. Chuyển khoản</b><span>Quét VietQR, nội dung ghi mã bản vẽ.</span></div>
+      <div><b>4. Nhận file</b><span>File DWG gửi qua Zalo ngay khi nhận được tiền trong giờ làm việc.</span></div>
+    </div>
     <div class="pays">
       <div>VietQR<small>Quét mã bằng app ngân hàng bất kỳ</small></div>
       <div>Chuyển khoản<small>Ghi mã bản vẽ và số Zalo</small></div>
