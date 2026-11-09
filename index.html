@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kho bản vẽ nhà phố, nhà cấp 4, biệt thự, thư viện CAD của Đại Phát Decor. Xem trước PDF, mua qua VietQR, nhận file qua Zalo.">
+<style>html{color-scheme:light}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Kho Bản Vẽ 24H</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: bàn vẽ kỹ thuật — thanh tìm kiếm trên cùng, hai trục lọc (loại công trình / phần mềm), lưới sản phẩm có hình mặt bằng vẽ đúng tỉ lệ lô đất */
+:root{
+  --bg:#eeeeee; --paper:#ffffff; --ink:#333333; --muted:#6f6f6f; --line:#dddddd;
+  --accent:#fb9119; --accent-ink:#ffffff; --ochre:#ed6c05; --ochre-soft:#fff1e0; --grid:#f0f0f0;
+  --ok:#5d941f; --buy:#7ec72f; --nav:#333333;
+  --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,sans-serif;
+  --f-mono:"Roboto Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1a1a1a; --paper:#262626; --ink:#eeeeee; --muted:#a8a8a8; --line:#3a3a3a;
+  --accent:#fb9119; --accent-ink:#1a1a1a; --ochre:#ff8a2b; --ochre-soft:#3a2a18; --grid:#2e2e2e; --ok:#7ec72f; --buy:#6aa82a; --nav:#111111; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1a1a1a; --paper:#262626; --ink:#eeeeee; --muted:#a8a8a8; --line:#3a3a3a;
+  --accent:#fb9119; --accent-ink:#1a1a1a; --ochre:#ff8a2b; --ochre-soft:#3a2a18; --grid:#2e2e2e; --ok:#7ec72f; --buy:#6aa82a; --nav:#111111; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:.01em;text-wrap:balance;margin:0;line-height:1.1}
+.demo{background:var(--ochre-soft);color:var(--ink);font-size:13px;text-align:center;padding-block:6px}
+header.top{background:var(--paper);border-bottom:4px solid var(--accent);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:12px}
+.logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink)}
+.logo b{font-family:var(--f-display);font-size:26px;letter-spacing:.02em;color:var(--accent)}
+.logo span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.search{flex:1 1 280px;display:flex;min-width:0}
+.search input{flex:1;min-width:0;font:inherit;padding:10px 12px;border:1px solid var(--line);border-right:0;border-radius:6px 0 0 6px;background:var(--bg);color:var(--ink)}
+.search button{font:inherit;font-weight:600;padding:0 16px;border:0;border-radius:0 6px 6px 0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+nav.main{display:flex;gap:4px;font-size:14px;flex-wrap:wrap;background:var(--nav);border-radius:4px;padding:4px}
+nav.main a{color:#ffffff;text-decoration:none;font-weight:600;padding:6px 10px;border-radius:3px}
+nav.main a:hover{background:var(--accent)}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+
+.hero{padding-block:36px 24px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:end}
+.hero h1{font-size:clamp(34px,5vw,54px)}
+.hero p{color:var(--muted);max-width:58ch;margin:12px 0 0}
+.stats{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.stats b{display:block;font-family:var(--f-display);font-size:30px;color:var(--ink)}
+
+.filters{display:grid;gap:12px;padding-block:8px 18px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row .lbl{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);width:120px}
+.chip{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#ffffff;border-color:var(--accent);font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding-bottom:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.thumb{aspect-ratio:4/3;max-width:100%;background:var(--bg);border-bottom:1px solid var(--line);position:relative}
+.thumb svg{width:100%;height:100%;display:block}
+.tag{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:11px;padding:3px 7px;border-radius:4px;background:var(--paper);border:1px solid var(--line)}
+.tag.free{background:var(--ok);color:var(--paper);border-color:var(--ok)}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{font-size:20px}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta span{font-family:var(--f-mono);font-size:11px;padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px}
+.price{font-family:var(--f-display);font-size:22px;font-variant-numeric:tabular-nums}
+.btn{font:inherit;font-size:14px;font-weight:600;padding:8px 12px;border-radius:4px;border:1px solid var(--buy);background:var(--buy);color:#ffffff;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ok);border-color:var(--ok)}
+.price{color:var(--ochre)}
+.empty{grid-column:1/-1;padding:32px;text-align:center;color:var(--muted)}
+
+section.band{padding-block:40px;border-top:1px solid var(--line)}
+section.band h2{font-size:34px;margin-bottom:8px;border-left:5px solid var(--accent);padding-left:12px}
+.lead{color:var(--muted);max-width:65ch;margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.plan.pick{border:2px solid var(--accent)}
+.plan .amt{font-family:var(--f-display);font-size:36px;font-variant-numeric:tabular-nums}
+.plan .amt small{font-size:16px;color:var(--muted)}
+.plan ul{margin:0;padding-left:18px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;counter-reset:s}
+.step{counter-increment:s;border-left:2px solid var(--ochre);padding-left:14px}
+.step::before{content:"Bước " counter(s);font-family:var(--f-mono);font-size:12px;color:var(--ochre);text-transform:uppercase;letter-spacing:.08em}
+.step b{display:block;margin-top:4px}
+.step p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.note{font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:10px 12px}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .row{justify-content:space-between}
+.mono{font-family:var(--f-mono)}
+@media (max-width:760px){.hero,.split{grid-template-columns:1fr}.row .lbl{width:100%}}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .15s}.card:hover{transform:translateY(-2px)}}
+</style>
+
+</head>
+<body>
+<div class="demo">Bản xem thử. Sản phẩm, giá và số liệu dưới đây là ví dụ để duyệt bố cục, chưa phải hàng thật.</div>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top"><b>KHO BẢN VẼ 24H</b><span>khobanve24h</span></a>
+    <form class="search" id="searchForm" role="search">
+      <input id="q" type="search" placeholder="Tìm: nhà phố 5x20, biệt thự, block cửa…" aria-label="Tìm bản vẽ">
+      <button type="submit">Tìm</button>
+    </form>
+    <nav class="main">
+      <a href="#kho">Kho bản vẽ</a><a href="#free">Free tham khảo</a><a href="#gia">Bảng giá</a><a href="#mua">Cách mua</a><a href="#ban">Đăng bán</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>Bản vẽ nhà phố, nhà cấp 4 đủ hồ sơ để triển khai</h1>
+      <p>File CAD gồm kiến trúc, kết cấu, điện nước, do Đại Phát Decor thực hiện và kiểm tra. Cần chỉnh theo lô đất thật thì bên em nhận chỉnh, tính phí riêng.</p>
+    </div>
+    <div class="stats">
+      <div><b id="statCount">0</b>bộ trong kho (ví dụ)</div>
+      <div><b>DWG + PDF</b>xem trước PDF</div>
+      <div><b>Zalo</b>giao file sau chuyển khoản</div>
+    </div>
+  </div>
+
+  <div class="wrap" id="kho">
+    <div class="filters">
+      <div class="row" id="fType"><span class="lbl">Loại công trình</span></div>
+      <div class="row" id="fTool"><span class="lbl">Phần mềm</span></div>
+      <div class="row" id="fPrice"><span class="lbl">Giá</span></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <section class="band" id="free">
+    <div class="wrap split">
+      <div>
+        <h2>Bản vẽ free tham khảo</h2>
+        <p class="lead">Tổng hợp các bản vẽ miễn phí hay trên mạng. Mỗi bản ghi rõ tác giả và nguồn, bấm "Tải tại nguồn" để tải ở trang gốc. Kho không lưu lại file của người khác.</p>
+        <p class="note">Bản free của Đại Phát thì tải thẳng tại đây, chỉ cần để lại số Zalo.</p>
+      </div>
+      <div class="grid" id="freeGrid" style="grid-template-columns:1fr"></div>
+    </div>
+  </section>
+
+  <section class="band" id="gia">
+    <div class="wrap">
+      <h2>Bảng giá</h2>
+      <p class="lead">Giá thử để duyệt, anh chỉnh lại theo thực tế.</p>
+      <div class="cols">
+        <div class="plan">
+          <h3>Mua lẻ</h3>
+          <div class="amt">149k – 790k <small>/ bộ</small></div>
+          <ul><li>Thư viện block từ 149k</li><li>Bộ nhà phố đủ KT + KC + ĐN từ 490k</li><li>Xem trước PDF có watermark</li></ul>
+        </div>
+        <div class="plan pick">
+          <h3>Thành viên năm</h3>
+          <div class="amt">1.490k <small>/ năm</small></div>
+          <ul><li>Tải 10 bộ mỗi tháng</li><li>Thêm mẫu mới mỗi tháng</li><li>Giảm 10% phí chỉnh theo lô đất</li></ul>
+        </div>
+        <div class="plan">
+          <h3>Chỉnh theo lô đất</h3>
+          <div class="amt">từ 1 triệu</div>
+          <ul><li>Lấy bộ mẫu chỉnh theo kích thước đất thật</li><li>Báo giá sau khi xem MB và sổ</li><li>Nhận làm trọn gói thiết kế thi công</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="mua">
+    <div class="wrap">
+      <h2>Cách mua</h2>
+      <div class="steps">
+        <div class="step"><b>Chọn bản vẽ</b><p>Xem PDF trước, ghi lại mã bản vẽ.</p></div>
+        <div class="step"><b>Chuyển khoản VietQR</b><p>Nội dung ghi mã bản vẽ và số Zalo của anh chị.</p></div>
+        <div class="step"><b>Nhận file qua Zalo</b><p>Gửi link tải DWG trong giờ làm việc.</p></div>
+        <div class="step"><b>Cần chỉnh thì nhắn</b><p>Gửi kích thước lô đất để báo giá chỉnh.</p></div>
+      </div>
+      <p class="note" style="margin-top:20px">Zalo: <span class="mono" id="zalo">0979 597 679</span> <button class="chip" id="copyZalo" type="button">Chép số</button> <span id="copied" class="mono" hidden>đã chép</span></p>
+    </div>
+  </section>
+
+  <section class="band" id="ban">
+    <div class="wrap split">
+      <div>
+        <h2>Đăng bán bản vẽ của bạn</h2>
+        <p class="lead">KTS, kỹ sư, sinh viên có bản vẽ do chính mình làm có thể gửi lên kho. Bên em kiểm tra, dựng trang, bán và chia doanh thu mỗi tháng.</p>
+      </div>
+      <div class="cols" style="grid-template-columns:1fr">
+        <div class="plan">
+          <h3>Điều kiện</h3>
+          <ul><li>Bản vẽ do bạn làm hoặc có quyền bán</li><li>Đã xoá tên chủ nhà, địa chỉ công trình</li><li>Ký giấy đồng ý đăng bán</li><li>Tỉ lệ chia: chờ chốt</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>Kho Bản Vẽ 24H</span>
+    <span>Bản vẽ mẫu dùng để tham khảo. Xin phép xây dựng và thi công cần chỉnh theo hiện trạng.</span>
+  </div>
+</footer>
+
+<script>
+const TYPES=["Tất cả","Nhà phố","Nhà cấp 4","Biệt thự","Nội thất","Thư viện CAD","Hồ sơ xin phép"];
+const TOOLS=["Tất cả","AutoCAD","SketchUp","3ds Max","Revit"];
+const PRICES=["Tất cả","Free","Dưới 500k","Từ 500k"];
+// Ví dụ — thay bằng hàng thật của chủ
+const ITEMS=[
+ {code:"DP-NP-0520",name:"Nhà phố 3 tầng 5x20m",type:"Nhà phố",tools:["AutoCAD","SketchUp"],parts:["KT","KC","ĐN"],w:5,l:20,price:690000},
+ {code:"DP-NP-0415",name:"Nhà phố 2 tầng 4x15m",type:"Nhà phố",tools:["AutoCAD"],parts:["KT","KC","ĐN"],w:4,l:15,price:490000},
+ {code:"DP-NP-0618",name:"Nhà phố 4 tầng 6x18m có thang máy",type:"Nhà phố",tools:["AutoCAD","Revit"],parts:["KT","KC","ĐN"],w:6,l:18,price:790000},
+ {code:"DP-C4-0542",name:"Nhà cấp 4 sân vườn 5x42m",type:"Nhà cấp 4",tools:["AutoCAD"],parts:["KT","KC"],w:5,l:42,price:390000},
+ {code:"DP-C4-0820",name:"Nhà cấp 4 mái Thái 8x20m",type:"Nhà cấp 4",tools:["AutoCAD","SketchUp"],parts:["KT","KC","ĐN"],w:8,l:20,price:450000},
+ {code:"DP-BT-1220",name:"Biệt thự 2 tầng tân cổ điển 12x20m",type:"Biệt thự",tools:["AutoCAD","3ds Max"],parts:["KT","KC","ĐN"],w:12,l:20,price:790000},
+ {code:"DP-NT-0001",name:"Nội thất phòng khách bếp nhà phố 5m",type:"Nội thất",tools:["SketchUp","3ds Max"],parts:["3D","Bố trí"],w:5,l:12,price:290000},
+ {code:"DP-LB-0001",name:"Thư viện block cửa, thang, nội thất",type:"Thư viện CAD",tools:["AutoCAD"],parts:["Block","Layer","Khung tên"],w:0,l:0,price:149000},
+ {code:"DP-LB-0002",name:"Chi tiết cầu thang và lan can",type:"Thư viện CAD",tools:["AutoCAD"],parts:["Chi tiết"],w:0,l:0,price:0},
+ {code:"DP-XP-0001",name:"Hồ sơ xin phép nhà phố TP.HCM",type:"Hồ sơ xin phép",tools:["AutoCAD"],parts:["MB","MĐ","MC","Định vị"],w:5,l:18,price:350000},
+];
+const FREE=[
+ {name:"Mẫu chi tiết cầu thang (Đại Phát)",src:"Đại Phát Decor",own:true},
+ {name:"Ví dụ: bộ block sofa, giường",src:"Tác giả và trang nguồn ghi ở đây",own:false},
+];
+const st={type:"Tất cả",tool:"Tất cả",price:"Tất cả",q:""};
+const fmt=n=>n===0?"Free":(n/1000).toLocaleString("vi-VN")+"k";
+
+function chips(id,list,key){
+  const el=document.getElementById(id);
+  list.forEach(v=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=v;
+    b.setAttribute("aria-pressed",String(st[key]===v));
+    b.onclick=()=>{st[key]=v;el.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c.textContent===v)));render()};
+    el.appendChild(b)});
+}
+// Hình mặt bằng vẽ đúng tỉ lệ lô đất W x L
+function plan(it){
+  const W=320,H=240,pad=22;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Sơ đồ lô ${it.w}x${it.l}m">`;
+  for(let x=0;x<W;x+=16)s+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="var(--grid)" stroke-width="1"/>`;
+  for(let y=0;y<H;y+=16)s+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`;
+  if(!it.w){ // thư viện: vẽ vài block
+    for(let i=0;i<4;i++){const x=40+i*62;s+=`<rect x="${x}" y="90" width="44" height="60" fill="none" stroke="var(--ink)" stroke-width="1.5"/><path d="M${x} 150 A44 44 0 0 1 ${x+44} 106" fill="none" stroke="var(--accent)" stroke-width="1"/>`}
+    return s+`</svg>`;
+  }
+  const sc=Math.min((W-2*pad)/it.l,(H-2*pad)/it.w);
+  const lw=it.l*sc,lh=it.w*sc,ox=(W-lw)/2,oy=(H-lh)/2;
+  s+=`<rect x="${ox}" y="${oy}" width="${lw}" height="${lh}" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>`;
+  const n=Math.max(2,Math.min(6,Math.round(it.l/4)));
+  for(let i=1;i<n;i++){const x=ox+lw*i/n;s+=`<line x1="${x}" y1="${oy}" x2="${x}" y2="${oy+lh}" stroke="var(--ink)" stroke-width="1.2"/>`}
+  s+=`<line x1="${ox}" y1="${oy-10}" x2="${ox+lw}" y2="${oy-10}" stroke="var(--ochre)" stroke-width="1"/><text x="${ox+lw/2}" y="${oy-14}" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="11" fill="var(--ochre)">${it.l}m</text>`;
+  s+=`<text x="${ox-6}" y="${oy+lh/2+4}" text-anchor="end" font-family="Roboto Mono, monospace" font-size="11" fill="var(--ochre)">${it.w}m</text>`;
+  return s+`</svg>`;
+}
+function render(){
+  const q=st.q.toLowerCase();
+  const list=ITEMS.filter(it=>(st.type==="Tất cả"||it.type===st.type)&&(st.tool==="Tất cả"||it.tools.includes(st.tool))&&
+    (st.price==="Tất cả"||(st.price==="Free"&&it.price===0)||(st.price==="Dưới 500k"&&it.price>0&&it.price<500000)||(st.price==="Từ 500k"&&it.price>=500000))&&
+    (!q||(it.name+" "+it.code+" "+it.type).toLowerCase().includes(q)));
+  const g=document.getElementById("grid");
+  g.innerHTML=list.length?list.map(it=>`<article class="card"><div class="thumb">${plan(it)}<span class="tag ${it.price===0?"free":""}">${it.code}</span></div>
+   <div class="body"><h3>${it.name}</h3><div class="meta">${it.parts.map(p=>`<span>${p}</span>`).join("")}${it.tools.map(t=>`<span>${t}</span>`).join("")}</div>
+   <div class="foot"><span class="price">${fmt(it.price)}</span><a class="btn" href="#mua">${it.price===0?"Tải free":"Mua"}</a></div></div></article>`).join("")
+   :`<div class="empty">Chưa có bản vẽ khớp. Thử bỏ bớt bộ lọc hoặc nhắn Zalo để đặt vẽ.</div>`;
+}
+chips("fType",TYPES,"type");chips("fTool",TOOLS,"tool");chips("fPrice",PRICES,"price");
+document.getElementById("statCount").textContent=ITEMS.length;
+document.getElementById("freeGrid").innerHTML=FREE.map(f=>`<article class="card"><div class="body"><h3>${f.name}</h3><div class="meta"><span>${f.src}</span></div>
+ <div class="foot"><span class="price">Free</span><a class="btn ${f.own?"":"ghost"}" href="${f.own?"#mua":"#free"}">${f.own?"Tải tại đây":"Tải tại nguồn"}</a></div></div></article>`).join("");
+document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();st.q=document.getElementById("q").value.trim();render();document.getElementById("kho").scrollIntoView()});
+document.getElementById("q").addEventListener("input",e=>{st.q=e.target.value.trim();render()});
+document.getElementById("copyZalo").onclick=()=>{const t=document.getElementById("zalo").textContent.replace(/\s/g,"");
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById("copied").hidden=false}).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("zalo"));const s=getSelection();s.removeAllRanges();s.addRange(r)})};
+render();
+</script>
+
+</body>
+</html>
